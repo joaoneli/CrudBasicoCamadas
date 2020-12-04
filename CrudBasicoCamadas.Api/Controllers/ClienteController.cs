@@ -17,7 +17,6 @@ namespace CrudBasicoCamadas.Api.Controllers
         }
 
         [HttpGet]
-
         public ActionResult<List<ClienteEntity>> GetAll()
         {
 
@@ -44,17 +43,27 @@ namespace CrudBasicoCamadas.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteById")]
-
         public ActionResult<ClienteEntity> DeleteById([FromHeader] ClienteEntity cliente)
         {
             var clienteDelete = _clienteServices.DeleteById(cliente);
 
             if (!clienteDelete)
             {
-                return NotFound("Erro ao deletar cliente!");
+                return BadRequest("Erro ao deletar cliente!");
             }
             return Ok(clienteDelete);
+        }
+
+        [HttpPost]
+        public ActionResult<ClienteEntity> Insert([FromBody] ClienteEntity cliente)
+        {
+            var insertCliente = _clienteServices.Insert(cliente);
+
+            if (!insertCliente)
+            {
+                return BadRequest("Erro ao salvar cliente!");
+            }
+            return Ok(insertCliente);
         }
     }
 }
