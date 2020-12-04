@@ -8,5 +8,8 @@ namespace CrudBasicoCamadas.Domain.Interfaces.IService
         List<ClienteEntity> GetAll();
 
         ClienteEntity GetById(int id);
+
+        bool DeleteById(ClienteEntity clienteEntity);
+        
     }
 }

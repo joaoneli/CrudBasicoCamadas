@@ -42,5 +42,19 @@ namespace CrudBasicoCamadas.Api.Controllers
             }
             return Ok(clientes);
         }
+
+        [HttpDelete]
+        [Route("DeleteById")]
+
+        public ActionResult<ClienteEntity> DeleteById([FromHeader] ClienteEntity cliente)
+        {
+            var clienteDelete = _clienteServices.DeleteById(cliente);
+
+            if (!clienteDelete)
+            {
+                return NotFound("Erro ao deletar cliente!");
+            }
+            return Ok(clienteDelete);
+        }
     }
 }
