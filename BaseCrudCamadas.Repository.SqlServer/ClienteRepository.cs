@@ -47,5 +47,17 @@ namespace BaseCrudCamadas.Repository.SqlServer
                 return false;
             }
         }
+        public bool Update(ClienteEntity clienteEntity, IDbConnection connection)
+        {
+            try
+            {
+                connection.Update(clienteEntity);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

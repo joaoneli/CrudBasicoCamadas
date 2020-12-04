@@ -10,5 +10,6 @@ namespace CrudBasicoCamadas.Domain.Interfaces.IRepository
         ClienteEntity GetById(int id, IDbConnection connection);
         bool DeleteById(ClienteEntity clienteEntity, IDbConnection connection);
         bool Insert(ClienteEntity clienteEntity, IDbConnection connection);
+        bool Update(ClienteEntity clienteEntity, IDbConnection connection);
     }
 }
