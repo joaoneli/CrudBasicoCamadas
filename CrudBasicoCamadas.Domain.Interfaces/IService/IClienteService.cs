@@ -12,6 +12,6 @@ namespace CrudBasicoCamadas.Domain.Interfaces.IService
         bool DeleteById(ClienteEntity clienteEntity);
 
         bool Insert(ClienteEntity clienteEntity);
-
+        bool Update(ClienteEntity clienteEntity);
     }
 }

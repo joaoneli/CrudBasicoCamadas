@@ -37,5 +37,10 @@ namespace CrudBasicoCamadas.Services
         {
             return _clienteRepository.Insert(clienteEntity, _unityOfWork.GetConnection());
         }
+
+        public bool Update(ClienteEntity clienteEntity)
+        {
+            return _clienteRepository.Update(clienteEntity, _unityOfWork.GetConnection());
+        }
     }
 }

@@ -65,5 +65,17 @@ namespace CrudBasicoCamadas.Api.Controllers
             }
             return Ok(insertCliente);
         }
+
+        [HttpPut]
+        public ActionResult<ClienteEntity> Update([FromBody] ClienteEntity cliente)
+        {
+            var updateCliente = _clienteServices.Update(cliente);
+
+            if (!updateCliente)
+            {
+                return BadRequest("Erro ao inserir cliente!");
+            }
+            return Ok(updateCliente);
+        }
     }
 }
