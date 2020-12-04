@@ -28,5 +28,9 @@ namespace CrudBasicoCamadas.Services
         {
             return _clienteRepository.GetById(id, _unityOfWork.GetConnection());
         }
+        public bool DeleteById(ClienteEntity clienteEntity)
+        {
+            return _clienteRepository.DeleteById(clienteEntity, _unityOfWork.GetConnection());
+        }
     }
 }
