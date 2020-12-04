@@ -5,7 +5,7 @@ namespace CrudBasicoCamadas.Domain.Shared
 {
     public class BaseEntity
     {
-        [ExplicitKey]
+        [Key]
         public int Id { get; set; }
 
         public string Nome { get; set; }

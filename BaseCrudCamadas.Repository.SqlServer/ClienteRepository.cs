@@ -33,10 +33,19 @@ namespace BaseCrudCamadas.Repository.SqlServer
             catch (Exception e)
             {
                 return false;
+            }  
+        }
+        public bool Insert(ClienteEntity clienteEntity, IDbConnection connection)
+        {
+            try
+            {
+                connection.Insert(clienteEntity);
+                return true;
             }
-            
-     
-
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }
