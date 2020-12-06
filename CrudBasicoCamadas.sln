@@ -13,19 +13,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Repository", "4-Repositor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-CrossCutting", "5-CrossCutting", "{DB99DD11-5A0F-4461-8CEB-354ED0572104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudBasicoCamadas.Domain", "CrudBasicoCamadas.Domain\CrudBasicoCamadas.Domain.csproj", "{343C0686-7009-4FF8-A2B1-14F18E3D8F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudBasicoCamadas.Domain", "CrudBasicoCamadas.Domain\CrudBasicoCamadas.Domain.csproj", "{343C0686-7009-4FF8-A2B1-14F18E3D8F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudBasicoCamadas.Services", "CrudBasicoCamadas.Services\CrudBasicoCamadas.Services.csproj", "{ACD69210-06A4-400E-A1BF-8487205C02A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudBasicoCamadas.Services", "CrudBasicoCamadas.Services\CrudBasicoCamadas.Services.csproj", "{ACD69210-06A4-400E-A1BF-8487205C02A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudBasicoCamadas.Domain.Interfaces", "CrudBasicoCamadas.Domain.Interfaces\CrudBasicoCamadas.Domain.Interfaces.csproj", "{B3ACCBC7-3412-4A5A-B2A8-6AF0D45B4541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudBasicoCamadas.Domain.Interfaces", "CrudBasicoCamadas.Domain.Interfaces\CrudBasicoCamadas.Domain.Interfaces.csproj", "{B3ACCBC7-3412-4A5A-B2A8-6AF0D45B4541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudBasicoCamadas.Domain.Shared", "CrudBasicoCamadas.Domain.Shared\CrudBasicoCamadas.Domain.Shared.csproj", "{6767D8C3-3AC6-4348-A12C-40DB690D3960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudBasicoCamadas.Domain.Shared", "CrudBasicoCamadas.Domain.Shared\CrudBasicoCamadas.Domain.Shared.csproj", "{6767D8C3-3AC6-4348-A12C-40DB690D3960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCrudCamadas.Repository.SqlServer", "BaseCrudCamadas.Repository.SqlServer\BaseCrudCamadas.Repository.SqlServer.csproj", "{25DE862C-FA4A-4A1D-AA63-E104CFF39EB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseCrudCamadas.Repository.SqlServer", "BaseCrudCamadas.Repository.SqlServer\BaseCrudCamadas.Repository.SqlServer.csproj", "{25DE862C-FA4A-4A1D-AA63-E104CFF39EB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudBasicoCamadas.IoC", "CrudBasicoCamadas.IoC\CrudBasicoCamadas.IoC.csproj", "{4C033A4D-638D-45D6-A29D-FE8D347426E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudBasicoCamadas.IoC", "CrudBasicoCamadas.IoC\CrudBasicoCamadas.IoC.csproj", "{4C033A4D-638D-45D6-A29D-FE8D347426E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudBasicoCamadas.Api", "CrudBasicoCamadas.Api\CrudBasicoCamadas.Api.csproj", "{5DAB8D1E-E326-43F2-88C0-C1A071C5C1E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudBasicoCamadas.Api", "CrudBasicoCamadas.Api\CrudBasicoCamadas.Api.csproj", "{5DAB8D1E-E326-43F2-88C0-C1A071C5C1E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{51AD9E68-5E9C-4690-B9F6-7AEB158C866D}"
+	ProjectSection(SolutionItems) = preProject
+		Referencias.txt = Referencias.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

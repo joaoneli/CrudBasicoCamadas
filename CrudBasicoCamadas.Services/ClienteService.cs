@@ -2,9 +2,7 @@
 using CrudBasicoCamadas.Domain.Interfaces.IRepository;
 using CrudBasicoCamadas.Domain.Interfaces.IService;
 using CrudBasicoCamadas.Domain.Interfaces.IUnityOfWork;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CrudBasicoCamadas.Services
 {

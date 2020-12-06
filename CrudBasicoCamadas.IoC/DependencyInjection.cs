@@ -14,8 +14,12 @@ namespace CrudBasicoCamadas.IoC
         public static void Register(IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IUnityOfWork>(options => new UnityOfWork(configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IClienteService, ClienteService>();
-            services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IFornecedorService, FornecedorService>();
+            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+
+
         }
     }
 }
