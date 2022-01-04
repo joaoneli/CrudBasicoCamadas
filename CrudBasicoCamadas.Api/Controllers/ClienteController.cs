@@ -1,6 +1,8 @@
 ﻿using CrudBasicoCamadas.Domain.Entities;
 using CrudBasicoCamadas.Domain.Interfaces.IService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 
 namespace CrudBasicoCamadas.Api.Controllers
@@ -11,11 +13,21 @@ namespace CrudBasicoCamadas.Api.Controllers
     public class ClienteController : Controller
     {
         private readonly IClienteService _clienteServices;
+        const string _swaggerName = "Clientes";
+
         public ClienteController(IClienteService clienteServices)
         {
             _clienteServices = clienteServices;
         }
 
+
+        /// <summary>
+        /// Busca todos os Clientes
+        /// </summary>
+        /// <response code="400">Bad Request</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <response code="200">Ok</response>
+        [SwaggerOperation(Tags = new[] { _swaggerName })]
         [HttpGet]
         public ActionResult<List<ClienteEntity>> GetAll()
         {
@@ -28,10 +40,17 @@ namespace CrudBasicoCamadas.Api.Controllers
             return Ok(clientes);
         }
 
+        /// <summary>
+        /// Busca Cliente por Id
+        /// Retorna informações do cliente   
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
+        [SwaggerOperation(Tags = new[] { _swaggerName })]
         [HttpGet]
         [Route("GetById")]
-
-        public ActionResult<ClienteEntity> GetById([FromHeader] ClienteEntity cliente)
+        [ProducesResponseType(typeof(ClienteEntity), StatusCodes.Status200OK)]
+        public ActionResult<ClienteEntity> GetById([FromQuery] ClienteEntity cliente)
         {
             var clientes = _clienteServices.GetById(cliente.Id);
 
@@ -42,6 +61,14 @@ namespace CrudBasicoCamadas.Api.Controllers
             return Ok(clientes);
         }
 
+        /// <summary>
+        /// Deleta Cliente por Id
+        /// </summary>
+        /// <param name="id">Id do cliente</param>
+        /// <response code="400">Bad Request</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <response code="200">Ok</response>
+        [SwaggerOperation(Tags = new[] { _swaggerName })]
         [HttpDelete]
         public ActionResult<ClienteEntity> DeleteById([FromHeader] ClienteEntity cliente)
         {
@@ -54,6 +81,13 @@ namespace CrudBasicoCamadas.Api.Controllers
             return Ok(clienteDelete);
         }
 
+        /// <summary>
+        /// Insere Cliente
+        /// </summary>
+        /// <response code="400">Bad Request</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <response code="200">Ok</response>
+        [SwaggerOperation(Tags = new[] { _swaggerName })]
         [HttpPost]
         public ActionResult<ClienteEntity> Insert([FromBody] ClienteEntity cliente)
         {
@@ -66,6 +100,13 @@ namespace CrudBasicoCamadas.Api.Controllers
             return Ok(insertCliente);
         }
 
+        /// <summary>
+        /// Atualiza Cliente
+        /// </summary>
+        /// <response code="400">Bad Request</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <response code="200">Ok</response>
+        [SwaggerOperation(Tags = new[] { _swaggerName })]
         [HttpPut]
         public ActionResult<ClienteEntity> Update([FromBody] ClienteEntity cliente)
         {

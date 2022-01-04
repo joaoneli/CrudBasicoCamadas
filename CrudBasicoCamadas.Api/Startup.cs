@@ -1,29 +1,35 @@
 using CrudBasicoCamadas.Api.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 
 namespace CrudBasicoCamadas.Api
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        private readonly string _apiName;
+        private readonly string _apiVersion;
+        private readonly string _apiXmlDocumentName;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            var assembly = Assembly.GetExecutingAssembly().GetName();
+            _apiName = assembly.Name;
+            _apiVersion = assembly.Version.ToString();
+            _apiXmlDocumentName = assembly.Name + ".xml";
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
@@ -36,11 +42,26 @@ namespace CrudBasicoCamadas.Api
                         .AllowAnyHeader());
             });
 
-            services.AddControllers();
+
             services.AddDependencyInjectionConfiguration(Configuration);
+
+            services.AddSwaggerGen(c =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+
+                c.IncludeXmlComments(xmlPath);
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "API Teste CRUD",
+                    Description = "Um CRUD de Teste"
+                });
+            });
+
+            services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -59,6 +80,13 @@ namespace CrudBasicoCamadas.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "API Teste CRUD");
             });
         }
     }
